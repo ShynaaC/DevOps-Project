@@ -16,16 +16,27 @@ spec:
         app: grafana
 
     spec:
+      # containers:
+      #   - name: grafana
+      #     image: grafana/grafana:latest
+
+      #     ports:
+      #       - containerPort: 3000
+
+      #     volumeMounts:
+      #       - name: datasource
+      #         mountPath: /etc/grafana/provisioning/datasources
       containers:
-        - name: grafana
-          image: grafana/grafana:latest
+          - name: grafana
+            image: grafana/grafana:latest
+            imagePullPolicy: IfNotPresent
 
-          ports:
-            - containerPort: 3000
+            ports:
+              - containerPort: 3000
 
-          volumeMounts:
-            - name: datasource
-              mountPath: /etc/grafana/provisioning/datasources
+            volumeMounts:
+              - name: datasource
+                mountPath: /etc/grafana/provisioning/datasources
 
       volumes:
         - name: datasource
