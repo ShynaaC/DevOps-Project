@@ -25,7 +25,7 @@ spec:
     spec:
       containers:
         - name: intraops
-          image: companyintranet:v1
+          image: companyintranet:v2
           imagePullPolicy: Never
 
           ports:
